@@ -1,0 +1,318 @@
+.font-vestige {
+  font-family: "vestige";
+}
+
+.font-lora {
+  font-family: "Lora", serif;
+}
+
+.font-sans {
+  font-family: "Open Sans", sans-serif;
+}
+
+@font-face {
+  font-family: "aesthetic";
+  src: url(/font-family/belgant-aesthetic.otf) format("opentype");
+}
+@font-face {
+  font-family: "vestige";
+  src: url(/font-family/Vestige\ Grotesk.otf) format("opentype");
+}
+@font-face {
+  font-family: "alegros";
+  src: url(/font-family/AlegrosPersonalUse.ttf) format("truetype");
+}
+.font-alegros {
+  font-family: alegros;
+}
+
+.font-aesthetic {
+  font-family: "aesthetic", serif;
+}
+
+body {
+  background: #fffff1;
+  margin: 0;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.border-dotted {
+  position: relative;
+  background-image: linear-gradient(to right, #333 40%, rgba(255, 255, 255, 0) 20%);
+  background-position: bottom;
+  background-size: 20px 2px;
+  background-repeat: repeat-x;
+  margin: 0;
+}
+.border-dotted::after {
+  position: absolute;
+  content: "";
+  background-image: linear-gradient(to right, #333 40%, rgba(255, 255, 255, 0) 20%);
+  background-size: 3px 1px;
+  background-repeat: repeat-x;
+}
+.border-dotted .marq-header {
+  font-weight: 400;
+}
+
+.header-quotes {
+  position: relative;
+}
+
+.quotes {
+  position: absolute;
+  font-size: 50px;
+  inset: 50% auto auto 100px;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  line-height: 110px;
+}
+.quotes strong.sun {
+  font-size: 90px;
+  font-weight: 500;
+  color: #fffff1;
+  background: #000;
+}
+
+.bg-triangle {
+  overflow: hidden;
+  grid-area: 1/2/2/2;
+  height: 600px;
+}
+.bg-triangle .quarter-triangle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 0 10%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 0 10%);
+}
+.bg-triangle .quarter-triangle .rain, .bg-triangle .quarter-triangle .sunny, .bg-triangle .quarter-triangle .wind, .bg-triangle .quarter-triangle .snow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+.bg-triangle .quarter-triangle .rain .raining, .bg-triangle .quarter-triangle .sunny .raining, .bg-triangle .quarter-triangle .wind .raining, .bg-triangle .quarter-triangle .snow .raining {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7));
+  opacity: 0;
+  -webkit-animation: waterDrop 2.5s ease-in-out infinite;
+          animation: waterDrop 2.5s ease-in-out infinite;
+}
+.bg-triangle .quarter-triangle .rain .snowing, .bg-triangle .quarter-triangle .sunny .snowing, .bg-triangle .quarter-triangle .wind .snowing, .bg-triangle .quarter-triangle .snow .snowing {
+  position: absolute;
+  border-radius: 100%;
+  background: rgb(255, 255, 241);
+  background: radial-gradient(circle, rgb(255, 255, 241) 0%, rgba(255, 255, 255, 0.7511379552) 55%);
+  opacity: 0;
+  -webkit-animation: snowing 8s linear infinite;
+          animation: snowing 8s linear infinite;
+}
+.bg-triangle .quarter-triangle .rain .snowing i, .bg-triangle .quarter-triangle .sunny .snowing i, .bg-triangle .quarter-triangle .wind .snowing i, .bg-triangle .quarter-triangle .snow .snowing i {
+  filter: invert(100%) sepia(0%) saturate(7485%) hue-rotate(14deg) brightness(105%) contrast(106%);
+}
+.bg-triangle .quarter-triangle .rain .snowing:has(i), .bg-triangle .quarter-triangle .sunny .snowing:has(i), .bg-triangle .quarter-triangle .wind .snowing:has(i), .bg-triangle .quarter-triangle .snow .snowing:has(i) {
+  width: 0 !important;
+  height: 0 !important;
+}
+.bg-triangle .quarter-triangle .rain .sunrise, .bg-triangle .quarter-triangle .sunny .sunrise, .bg-triangle .quarter-triangle .wind .sunrise, .bg-triangle .quarter-triangle .snow .sunrise {
+  position: absolute;
+  inset: 15% 15% auto auto;
+  width: 70px;
+  height: 70px;
+  background: #fffff1;
+  background: rgb(248, 231, 154);
+  border-radius: 100%;
+}
+.bg-triangle .quarter-triangle .rain .sunrise::after, .bg-triangle .quarter-triangle .sunny .sunrise::after, .bg-triangle .quarter-triangle .wind .sunrise::after, .bg-triangle .quarter-triangle .snow .sunrise::after {
+  content: "";
+  border-radius: 100%;
+  position: absolute;
+  inset: 50% auto auto 50%;
+  -webkit-animation: aura 3s ease-out 1s infinite backwards;
+          animation: aura 3s ease-out 1s infinite backwards;
+  background: rgba(255, 255, 241, 0.4235294118);
+}
+.bg-triangle .quarter-triangle .rain .cloud, .bg-triangle .quarter-triangle .sunny .cloud, .bg-triangle .quarter-triangle .wind .cloud, .bg-triangle .quarter-triangle .snow .cloud {
+  -webkit-animation: animateCloud 30s linear infinite;
+          animation: animateCloud 30s linear infinite;
+}
+
+@-webkit-keyframes waterDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+    width: 1px;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    width: 2px;
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(600px);
+    opacity: 1;
+    width: 1px;
+  }
+}
+
+@keyframes waterDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+    width: 1px;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    width: 2px;
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(600px);
+    opacity: 1;
+    width: 1px;
+  }
+}
+@-webkit-keyframes snowing {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(60px);
+  }
+  30% {
+    transform: translate(6px, 180px);
+  }
+  70% {
+    transform: translate(-6px, 420px);
+  }
+  100% {
+    transform: translateY(600px);
+    opacity: 1;
+  }
+}
+@keyframes snowing {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(60px);
+  }
+  30% {
+    transform: translate(6px, 180px);
+  }
+  70% {
+    transform: translate(-6px, 420px);
+  }
+  100% {
+    transform: translateY(600px);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes aura {
+  0% {
+    width: 70px;
+    height: 70px;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    filter: blur(2px);
+    background: #f1f1c7;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes aura {
+  0% {
+    width: 70px;
+    height: 70px;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    filter: blur(2px);
+    background: #f1f1c7;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+@-webkit-keyframes animateCloud {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+@keyframes animateCloud {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+.mixblend {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.shade {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-position: center;
+  mix-blend-mode: color-dodge;
+  background-attachment: fixed;
+  background-image: linear-gradient(180deg, #f4310e 20%, #3c5e6d 35%, black, #f58308 80%, black);
+}/*# sourceMappingURL=styles.css.map */
